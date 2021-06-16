@@ -60,10 +60,6 @@ class KubaGame:
                         row == 3 and 1 <= column <= 5:
                     self._board[row][column] = 'R'                              # red marbles placed
 
-        # print initialized board
-        for row in range(7):
-            print(self._board[row])
-
     def get_current_turn(self):
         """
         Returns the  player name whose turn it is to play the game (None if game has not started yet, since either
@@ -169,10 +165,6 @@ class KubaGame:
                 self.change_turn(playername)  # change current turn
                 if self._players[playername]['score'] == 7:  # check for winner
                     self._winner = playername
-                # print updated board
-                print('\n')
-                for row in range(7):
-                    print(self._board[row])
                 return True
 
         elif direction == 'R':  # RIGHT
@@ -198,10 +190,6 @@ class KubaGame:
                 self.change_turn(playername)  # change current turn
                 if self._players[playername]['score'] == 7:  # check for winner
                     self._winner = playername
-                # print updated board
-                print('\n')
-                for row in range(7):
-                    print(self._board[row])
                 return True
 
         elif direction == 'F':  # FORWARD
@@ -227,10 +215,6 @@ class KubaGame:
                 self.change_turn(playername)  # change current turn
                 if self._players[playername]['score'] == 7:  # check for winner
                     self._winner = playername
-                # print updated board
-                print('\n')
-                for row in range(7):
-                    print(self._board[row])
                 return True
 
         elif direction == 'B':  # BACKWARD
@@ -256,10 +240,6 @@ class KubaGame:
                 self.change_turn(playername)  # change current turn
                 if self._players[playername]['score'] == 7:  # check for winner
                     self._winner = playername
-                # print updated board
-                print('\n')
-                for row in range(7):
-                    print(self._board[row])
                 return True
 
     def change_turn(self, current):
@@ -340,3 +320,10 @@ class KubaGame:
         Updated before executing a move.
         """
         return self._temp_board
+
+    def print_board(self):
+        """
+        Prints the current state of the board to the screen.
+        """
+        for row in range(7):
+            print(self._board[row])
